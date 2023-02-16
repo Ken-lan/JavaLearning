@@ -1,2 +1,3 @@
+*.class
 # Editor-based HTTP Client requests
-/httpRequests/
+Sample/httpRequests/

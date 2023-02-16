@@ -1,0 +1,22 @@
+GET http://iosnetworkdemo.appspot.com/json.jsp?msg=helloWorld
+Accept: application/json
+
+<> 2022-07-25T084859.200.html
+
+###
+
+GET http://iosnetworkdemo.appspot.com/json.jsp?msg=helloWorld
+Accept: application/json
+
+<> 2022-07-25T084840.200.html
+
+###
+
+POST https://tip.railway.gov.tw/tra-tip-web/tip/tip001/tip112/querybytime?startStation=1000-臺北&endStation=1210-新竹&transfer=ONE&rideDate=2019/05/29&startOrEndTime=true&startTime=00:00&endTime=23:30&trainTypeList=ALL&query=查詢
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-05-29T080130.200.html
+
+###
+
