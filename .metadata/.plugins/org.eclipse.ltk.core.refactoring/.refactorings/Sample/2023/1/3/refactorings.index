@@ -1,0 +1,6 @@
+1673845615047	Extract local variable 'map'
+1673847223306	Extract local variable 'keySet'
+1673854001166	Extract local variable 'integer'
+1673916096242	Extract local variable 'os'
+1673916228995	Extract local variable 'fos'
+1674017458966	Extract local variable 'iterator'

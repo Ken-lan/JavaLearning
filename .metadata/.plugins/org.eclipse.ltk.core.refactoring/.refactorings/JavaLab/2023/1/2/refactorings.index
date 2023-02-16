@@ -1,0 +1,28 @@
+1673227115123	Delete element
+1673228181979	Copy compilation unit
+1673228207117	Delete element
+1673228335098	Copy compilation units
+1673231385399	Extract local variable 'simCardExpDate'
+1673234619339	Delete element
+1673235059897	Extract local variable 'calcBMI'
+1673402527882	Rename type 'Exception'
+1673405480614	Extract local variable 'it'
+1673407273158	Extract local variable 'success'
+1673407671609	Extract local variable 'it'
+1673407731930	Extract local variable 'item'
+1673419648206	Extract local variable 'keys'
+1673420219489	Extract local variable 'entrySet'
+1673422088671	Extract local variable 'it'
+1673424150248	Extract local variable 'keys'
+1673424266037	Extract local variable 'entrySet'
+1673486751144	Extract local variable 'list'
+1673486797632	Extract local variable 'list2'
+1673488837346	Extract local variable 'lastModified'
+1673509810783	Delete element
+1673510595739	Extract local variable 'cols'
+1673578045293	Move compilation units
+1673581006423	Extract local variable 'localHost'
+1673581613706	Extract local variable 'socket'
+1673581814943	Extract local variable 'inputStream'
+1673581827550	Extract local variable 'outputStream'
+1673590801777	Extract local variable 'messageFromServer'

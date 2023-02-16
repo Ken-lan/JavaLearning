@@ -1,0 +1,20 @@
+package Midterm;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.net.URL;
+
+public class JavaIO {
+	
+	public void UrlInput( String dburl ) throws IOException {
+		
+		URL url = new URL(dburl);
+		BufferedInputStream bis = new BufferedInputStream(url.openStream());
+		
+		
+		
+	}
+	
+	
+	
+}

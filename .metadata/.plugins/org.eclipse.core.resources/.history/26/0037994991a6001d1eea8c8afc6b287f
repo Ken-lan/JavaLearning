@@ -1,0 +1,157 @@
+package Midterm;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JPasswordField;
+import java.awt.CardLayout;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JLayeredPane;
+import javax.swing.JSplitPane;
+import java.awt.Canvas;
+import java.awt.Button;
+import java.awt.Panel;
+import java.awt.Label;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Choice;
+import javax.swing.JButton;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import javax.swing.JMenuBar;
+import javax.swing.SwingConstants;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+import java.awt.Font;
+import javax.swing.JTextArea;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
+public class Window {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Window window = new Window();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Window() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 429);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new CardLayout(0, 0));
+		
+		JPanel Page1 = new JPanel();
+		frame.getContentPane().add(Page1, "name_197748648422500");
+		
+		JLabel lblNewJgoodiesTitle = DefaultComponentFactory.getInstance().createTitle("首頁");
+		lblNewJgoodiesTitle.setFont(new Font("微軟正黑體", Font.PLAIN, 32));
+		lblNewJgoodiesTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JButton btnNewButton = new JButton("New button");
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		
+		JButton btnNewButton_2 = new JButton("New button");
+		
+		JButton btnNewButton_3 = new JButton("New button");
+		
+		JButton btnNewButton_4 = new JButton("New button");
+		
+		JButton btnNewButton_5 = new JButton("New button");
+		
+		JTextArea txtrdb = new JTextArea();
+		txtrdb.setText("(1) 下載資料至DB\r\n\r\n(2) 從DB讀取資料\r\n\r\n(3) 搜尋以及刪除指定DB資料\r\n\r\n(4) 存入圖片至DB\r\n\r\n(5) 從DB讀取圖片並建立檔案\r\n\r\n(6) 結束");
+		GroupLayout gl_Page1 = new GroupLayout(Page1);
+		gl_Page1.setHorizontalGroup(
+			gl_Page1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Page1.createSequentialGroup()
+					.addGap(126)
+					.addComponent(lblNewJgoodiesTitle, GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+					.addGap(135))
+				.addGroup(gl_Page1.createSequentialGroup()
+					.addGap(53)
+					.addGroup(gl_Page1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Page1.createParallelGroup(Alignment.LEADING)
+							.addComponent(btnNewButton_5)
+							.addComponent(btnNewButton_4)
+							.addComponent(btnNewButton_3)
+							.addComponent(btnNewButton_2)
+							.addComponent(btnNewButton_1))
+						.addComponent(btnNewButton))
+					.addGap(18)
+					.addComponent(txtrdb, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(47, Short.MAX_VALUE))
+		);
+		gl_Page1.setVerticalGroup(
+			gl_Page1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Page1.createSequentialGroup()
+					.addGap(35)
+					.addComponent(lblNewJgoodiesTitle, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+					.addGap(30)
+					.addGroup(gl_Page1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Page1.createSequentialGroup()
+							.addComponent(btnNewButton)
+							.addGap(18)
+							.addComponent(btnNewButton_1)
+							.addGap(18)
+							.addComponent(btnNewButton_2)
+							.addGap(18)
+							.addComponent(btnNewButton_3)
+							.addGap(18)
+							.addComponent(btnNewButton_4)
+							.addGap(18)
+							.addComponent(btnNewButton_5))
+						.addComponent(txtrdb, GroupLayout.PREFERRED_SIZE, 230, GroupLayout.PREFERRED_SIZE))
+					.addGap(41))
+		);
+		Page1.setLayout(gl_Page1);
+		
+		JPanel Page2 = new JPanel();
+		frame.getContentPane().add(Page2, "name_5388124092700");
+		Page2.setLayout(new CardLayout(0, 0));
+		
+		JPanel Page3 = new JPanel();
+		frame.getContentPane().add(Page3, "name_5413472750300");
+		Page3.setLayout(new CardLayout(0, 0));
+		
+		JPanel Page4 = new JPanel();
+		frame.getContentPane().add(Page4, "name_5422474413500");
+		Page4.setLayout(new CardLayout(0, 0));
+		
+		JPanel Page5 = new JPanel();
+		frame.getContentPane().add(Page5, "name_5563649046100");
+		Page5.setLayout(new CardLayout(0, 0));
+		
+		JPanel Page6 = new JPanel();
+		frame.getContentPane().add(Page6, "name_5752475531200");
+		Page6.setLayout(new CardLayout(0, 0));
+	}
+}

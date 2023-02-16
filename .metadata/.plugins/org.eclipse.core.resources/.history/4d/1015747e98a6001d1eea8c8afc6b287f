@@ -1,0 +1,178 @@
+package Midterm;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JPasswordField;
+import java.awt.CardLayout;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JLayeredPane;
+import javax.swing.JSplitPane;
+import java.awt.Canvas;
+import java.awt.Button;
+import java.awt.Panel;
+import java.awt.Label;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Choice;
+import javax.swing.JButton;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import javax.swing.JMenuBar;
+import javax.swing.SwingConstants;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+import java.awt.Font;
+import javax.swing.JTextArea;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.SystemColor;
+import javax.swing.JList;
+import javax.swing.JTabbedPane;
+
+public class Window {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Window window = new Window();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Window() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 429);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new CardLayout(0, 0));
+		
+		JPanel Page1 = new JPanel();
+		frame.getContentPane().add(Page1, "name_197748648422500");
+		
+		JLabel lblNewJgoodiesTitle = DefaultComponentFactory.getInstance().createTitle("首頁");
+		lblNewJgoodiesTitle.setBounds(-10008, -10031, 434, 390);
+		lblNewJgoodiesTitle.setFont(new Font("微軟正黑體", Font.PLAIN, 32));
+		lblNewJgoodiesTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(10, 120, 100, 100);
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.removeAll();
+
+				frame.repaint();
+				frame.revalidate();
+			}
+		});
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setBounds(10, 40, 100, 40);
+		
+		JButton btnNewButton_2 = new JButton("New button");
+		btnNewButton_2.setBounds(10, 240, 100, 100);
+		
+		JButton btnNewButton_3 = new JButton("New button");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_3.setBounds(10, 228, 100, 100);
+		
+		JButton btnNewButton_4 = new JButton("New button");
+		btnNewButton_4.setBounds(130, 10, 100, 100);
+		
+		JButton btnNewButton_5 = new JButton("New button");
+		btnNewButton_5.setBounds(277, 147, 100, 100);
+		
+		JTextArea txtrdb = new JTextArea();
+		txtrdb.setBounds(298, 265, 100, 100);
+		txtrdb.setBackground(SystemColor.info);
+		txtrdb.setRows(6);
+		txtrdb.setText("(1) 下載資料至DB\r\n\r\n(2) 從DB讀取資料\r\n\r\n(3) 搜尋以及刪除指定DB資料\r\n\r\n(4) 存入圖片至DB\r\n\r\n(5) 從DB讀取圖片並建立檔案\r\n\r\n(6) 結束");
+		Page1.setLayout(null);
+		Page1.add(lblNewJgoodiesTitle);
+		Page1.add(btnNewButton_5);
+		Page1.add(btnNewButton_4);
+		Page1.add(btnNewButton_3);
+		Page1.add(btnNewButton_2);
+		Page1.add(btnNewButton_1);
+		Page1.add(btnNewButton);
+		Page1.add(txtrdb);
+		
+		JPanel Page2 = new JPanel();
+		frame.getContentPane().add(Page2, "name_5388124092700");
+		
+		JButton btnNewButton_6 = new JButton("New button");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println("click");
+				
+				
+			}
+		});
+		Page2.setLayout(new CardLayout(0, 0));
+		Page2.add(btnNewButton_6, "name_10176562096100");
+		
+		JPanel Page3 = new JPanel();
+		frame.getContentPane().add(Page3, "name_5413472750300");
+		Page3.setLayout(new CardLayout(0, 0));
+		
+		JButton btnNewButton_7 = new JButton("New button");
+		Page3.add(btnNewButton_7, "name_10179618745600");
+		
+		JPanel Page4 = new JPanel();
+		frame.getContentPane().add(Page4, "name_5422474413500");
+		Page4.setLayout(new CardLayout(0, 0));
+		
+		JButton btnNewButton_8 = new JButton("New button");
+		Page4.add(btnNewButton_8, "name_10184002467700");
+		
+		JPanel Page5 = new JPanel();
+		frame.getContentPane().add(Page5, "name_5563649046100");
+		Page5.setLayout(new CardLayout(0, 0));
+		
+		JButton btnNewButton_9 = new JButton("New button");
+		Page5.add(btnNewButton_9, "name_10186659953400");
+		
+		JPanel Page6 = new JPanel();
+		frame.getContentPane().add(Page6, "name_5752475531200");
+		Page6.setLayout(new CardLayout(0, 0));
+		
+		JButton btnNewButton_10 = new JButton("New button");
+		Page6.add(btnNewButton_10, "name_10189643238900");
+	}
+}

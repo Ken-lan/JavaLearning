@@ -1,0 +1,8 @@
+package Midterm;
+
+public interface Statement {
+
+	public static final String QUERY = "SELECT [name], price FROM product";
+	public static final String UPDATE = "UPDATE prdoduct SET price = ? WHERE id = ?";
+
+}

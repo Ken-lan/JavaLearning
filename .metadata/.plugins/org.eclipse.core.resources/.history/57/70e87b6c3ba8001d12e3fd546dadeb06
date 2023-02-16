@@ -1,0 +1,555 @@
+package Midterm;
+
+import java.awt.CardLayout;
+import java.awt.EventQueue;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.border.EmptyBorder;
+
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+public class Window extends JFrame implements DBUrl, LoginInformation, Statement, Address {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JPanel panel;
+	private JPanel panel_1;
+	private JPanel panel_2;
+	private JPanel panel_3;
+	private JPanel panel_4;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Window frame = new Window();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Window() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 615, 467);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+
+		JLayeredPane layeredPane = new JLayeredPane();
+
+		JButton btnNewButton = new JButton("功能一");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				layeredPane.removeAll();
+				layeredPane.add(panel);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+
+		JButton btnNewButton_1 = new JButton("功能二");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				layeredPane.removeAll();
+				layeredPane.add(panel_1);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+
+			}
+		});
+
+		JButton btnNewButton_2 = new JButton("功能三");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				layeredPane.removeAll();
+				layeredPane.add(panel_2);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+
+			}
+		});
+
+		JButton btnNewButton_3 = new JButton("功能四");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				layeredPane.removeAll();
+				layeredPane.add(panel_3);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+
+			}
+		});
+
+		JButton btnNewButton_4 = new JButton("功能五");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				layeredPane.removeAll();
+				layeredPane.add(panel_4);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+
+			}
+		});
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup().addGap(22)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup().addComponent(btnNewButton).addGap(18)
+										.addComponent(btnNewButton_1).addGap(18).addComponent(btnNewButton_2).addGap(18)
+										.addComponent(btnNewButton_3).addGap(18).addComponent(btnNewButton_4))
+								.addComponent(layeredPane, GroupLayout.PREFERRED_SIZE, 557, GroupLayout.PREFERRED_SIZE))
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING).addGroup(gl_contentPane
+				.createSequentialGroup().addContainerGap()
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(btnNewButton_1).addComponent(btnNewButton_2).addComponent(btnNewButton_3)
+						.addComponent(btnNewButton_4))
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addComponent(layeredPane, GroupLayout.PREFERRED_SIZE, 369, GroupLayout.PREFERRED_SIZE).addGap(6)));
+		layeredPane.setLayout(new CardLayout(0, 0));
+
+		panel = new JPanel();
+		layeredPane.add(panel, "name_18986752267100");
+		panel.setLayout(null);
+
+		JLabel lblNewJgoodiesTitle = DefaultComponentFactory.getInstance().createTitle("下載資料至DB");
+		lblNewJgoodiesTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewJgoodiesTitle.setBounds(185, 10, 170, 15);
+		panel.add(lblNewJgoodiesTitle);
+
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setBounds(60, 72, 444, 287);
+		panel.add(textArea_1);
+		textArea_1.setLineWrap(true);
+		textArea_1.setEditable(false);
+
+		JButton btnNewButton_5 = new JButton("執行");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				final Runnable runInitially = new Runnable() {
+					public void run() {
+
+						textArea_1.append("你選擇的是: 下載資料至DB");
+						Url.setUrl(
+								"https://www.ttl.com.tw/files/opendata/all/%E8%87%BA%E7%81%A3%E8%8F%B8%E9%85%92%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E7%94%A2%E5%93%81%E5%83%B9%E7%9B%AE%E8%A1%A8.csv");
+						String line;
+						String Array[];
+						try
+
+						{
+							BufferedInputStream bis = JavaIO.urlInput(Url.getUrl());
+							BufferedReader br = JDBCConnection.Reader(bis);
+							br.readLine();
+							Connection conn = JDBCConnection.conn(DB_URL, USERNAME, PASSWORD);
+							PreparedStatement prepStat = JDBCConnection.prepStat(conn, INSERT);
+
+							while ((line = br.readLine()) != null) {
+								Array = line.split(",");
+								// System.out.println(line);
+								for (int i = 1; i < 8; i++) {
+									prepStat.setString(i, Array[i - 1]);
+								}
+
+								prepStat.executeUpdate();
+							}
+							
+							int count = prepStat.executeUpdate();
+							if (count > 0)
+								textArea_1.append("success");
+							
+							
+							prepStat.close();
+							conn.close();
+							br.close();
+							bis.close();
+
+						} catch (FileNotFoundException e1) {
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+
+					};
+				};
+
+				Thread appThread = new Thread() {
+
+					public void run() {
+
+						try {
+
+							SwingUtilities.invokeAndWait(runInitially);
+
+						} catch (InterruptedException | InvocationTargetException ex) {
+
+							ex.printStackTrace();
+						}
+
+					} // run()
+				}; // Thread
+
+				appThread.start();
+				
+				
+			}
+		});
+		btnNewButton_5.setBounds(415, 29, 87, 23);
+		panel.add(btnNewButton_5);
+
+		panel_1 = new JPanel();
+		layeredPane.add(panel_1, "name_19000457793800");
+		panel_1.setLayout(null);
+
+		JLabel lblNewJgoodiesTitle_1 = DefaultComponentFactory.getInstance().createTitle("從DB讀取資料");
+		lblNewJgoodiesTitle_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewJgoodiesTitle_1.setBounds(185, 10, 140, 15);
+		panel_1.add(lblNewJgoodiesTitle_1);
+
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(60, 72, 444, 287);
+		panel_1.add(textArea);
+		textArea.setLineWrap(true);
+		textArea.setEditable(false);
+
+		textField = new JTextField();
+		textField.setBounds(60, 30, 345, 21);
+		textField.setText("請輸入ID");
+		panel_1.add(textField);
+		textField.setColumns(10);
+
+		JButton btnNewButton_6 = new JButton("執行");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				textArea.append("你選擇的是: 從DB讀取資料");
+				textArea.append("\n");
+				textArea.append("請輸入id:");
+				textArea.append("\n");
+				String selectID = textField.getText();
+
+				String content = "";
+				Connection conn;
+				try {
+					conn = JDBCConnection.conn(DB_URL, USERNAME, PASSWORD);
+					PreparedStatement prepStat = JDBCConnection.prepStat(conn, QUERY);
+					prepStat.setString(1, selectID);
+					ResultSet rs = prepStat.executeQuery();
+					while (rs.next()) {
+
+						content += "編號 =" + rs.getString("id") + ",";
+						content += "產品類別 =" + rs.getString("category") + ",";
+						content += "產品代號=" + rs.getString("code") + ",";
+						content += "品名=" + rs.getString("name") + ",";
+						content += "包裝=" + rs.getString("size") + ",";
+						content += "單位=" + rs.getString("unit") + ",";
+						content += "建議售價=" + rs.getString("price") + ",";
+						content += "備註=" + rs.getString("memo");
+						textArea.append(content);
+					}
+
+					// 下載成txt檔
+					String dest = String.format("C:\\Users\\Student\\Desktop\\%s.txt", selectID);
+					BufferedOutputStream bos = JDBCConnection.downloadDestination(dest);
+
+					// 將內容轉成Byte陣列並寫入
+					byte[] bytes = content.getBytes();
+					bos.write(bytes);
+
+					bos.close();
+					rs.close();
+					prepStat.close();
+					conn.close();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+
+				}
+			}
+		});
+		btnNewButton_6.setBounds(415, 29, 87, 23);
+		panel_1.add(btnNewButton_6);
+
+		panel_2 = new JPanel();
+		layeredPane.add(panel_2, "name_19002938815100");
+		panel_2.setLayout(null);
+
+		JLabel lblNewJgoodiesTitle_2 = DefaultComponentFactory.getInstance().createTitle("搜尋以及刪除指定DB資料");
+		lblNewJgoodiesTitle_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewJgoodiesTitle_2.setBounds(185, 10, 180, 15);
+		panel_2.add(lblNewJgoodiesTitle_2);
+
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(60, 30, 345, 21);
+		textField_1.setText("請輸入品名");
+		panel_2.add(textField_1);
+
+		JTextArea textArea_2 = new JTextArea();
+		textArea_2.setBounds(60, 72, 444, 287);
+		panel_2.add(textArea_2);
+		textArea_2.setLineWrap(true);
+		textArea_2.setEditable(false);
+
+		JButton btnNewButton_7 = new JButton("執行");
+		btnNewButton_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				final Runnable runInitially = new Runnable() {
+					public void run() {
+
+						textArea_2.append("你選擇的是: 搜尋以及刪除指定DB資料");
+						textArea_2.append("\n");
+						textArea_2.append("請輸入品名");
+						textArea_2.append("\n");
+
+						try {
+							Connection conn = JDBCConnection.conn(DB_URL, USERNAME, PASSWORD);
+							PreparedStatement prepStat = JDBCConnection.prepStat(conn, DELETE);
+							String condition = textField_1.getText();
+							textArea_2.append(String.format("你輸入的是%s", condition));
+							textArea_2.append("\n");
+							prepStat.setString(1, "%" + condition + "%");
+							prepStat.executeUpdate();
+
+							prepStat.close();
+							conn.close();
+
+						} catch (SQLException e1) {
+							// e.printStackTrace();
+							textArea_2.append("沒有指定項目，程式結束");
+							textArea_2.append("\n");
+
+						}
+						;
+
+					}
+				};
+
+				Thread appThread = new Thread() {
+
+					public void run() {
+
+						try {
+							SwingUtilities.invokeAndWait(runInitially);
+							textArea_2.append("\n");
+							textArea_2.append("success!");
+						} catch (InterruptedException | InvocationTargetException ex) {
+
+							ex.printStackTrace();
+						}
+
+					} // run()
+				}; // Thread
+
+				appThread.start();
+
+			}
+		});
+		btnNewButton_7.setBounds(415, 29, 87, 23);
+		panel_2.add(btnNewButton_7);
+
+		panel_3 = new JPanel();
+		layeredPane.add(panel_3, "name_19005688707700");
+		panel_3.setLayout(null);
+
+		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("存入圖片至DB");
+		lblNewJgoodiesLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewJgoodiesLabel.setBounds(185, 10, 165, 15);
+		panel_3.add(lblNewJgoodiesLabel);
+
+		JTextArea textArea_3 = new JTextArea();
+		textArea_3.setBounds(60, 72, 444, 287);
+		panel_3.add(textArea_3);
+		textArea_3.setLineWrap(true);
+		textArea_3.setEditable(false);
+
+		JButton btnNewButton_8 = new JButton("執行");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				final Runnable runInitially = new Runnable() {
+					public void run() {
+						textArea_3.append("你選擇的是: 存入圖片至DB");
+						textArea_3.append("\n");
+
+						File file = new File("C:\\Java\\Tomcat.gif");
+						try {
+
+							Connection conn = JDBCConnection.conn(DB_URL, USERNAME, PASSWORD);
+							PreparedStatement prepStat = JDBCConnection.prepStat(conn, INSERT_PIC);
+							BufferedInputStream bis = JDBCConnection.fileInput(IMAGE_DEST);// 圖片位置
+
+							prepStat.setString(1, file.getName());
+							prepStat.setBinaryStream(2, bis);
+							prepStat.setString(3, JDBCConnection.findExtension(file));
+							int count = prepStat.executeUpdate();
+							if (count > 0)
+								textArea_3.append("success!");
+
+							bis.close();
+							prepStat.close();
+							conn.close();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+
+					};
+
+				};
+
+				Thread appThread = new Thread() {
+
+					public void run() {
+
+						try {
+							SwingUtilities.invokeAndWait(runInitially);
+						} catch (InterruptedException | InvocationTargetException ex) {
+
+							ex.printStackTrace();
+						}
+
+					} // run()
+				}; // Thread
+
+				appThread.start();
+
+			}
+		});
+		btnNewButton_8.setBounds(415, 29, 87, 23);
+		panel_3.add(btnNewButton_8);
+
+		panel_4 = new JPanel();
+		layeredPane.add(panel_4, "name_19009009130500");
+		panel_4.setLayout(null);
+
+		JLabel lblNewJgoodiesTitle_3 = DefaultComponentFactory.getInstance().createTitle("從DB讀取圖片並建立檔案");
+		lblNewJgoodiesTitle_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewJgoodiesTitle_3.setBounds(185, 10, 189, 15);
+		panel_4.add(lblNewJgoodiesTitle_3);
+
+		JTextField textField_2 = new JTextField();
+		textField_2.setText("請輸入ID");
+		textField_2.setColumns(10);
+		textField_2.setBounds(60, 30, 345, 21);
+		panel_4.add(textField_2);
+
+		JTextArea textArea_4 = new JTextArea();
+		textArea_4.setBounds(60, 72, 444, 287);
+		panel_4.add(textArea_4);
+		textArea_4.setLineWrap(true);
+		textArea_4.setEditable(false);
+		contentPane.setLayout(gl_contentPane);
+
+		JButton btnNewButton_9 = new JButton("執行");
+		btnNewButton_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				textArea_4.append("你選擇的是: 從DB讀取圖片並建立檔案");
+				textArea_4.append("\n");
+				textArea_4.append("請輸入ID");
+				textArea_4.append("\n");
+				String selectID = textField_2.getText();
+				String content = ""; // 印出內容
+				String filename = ""; // 檔案名稱
+				try {
+					Connection conn = JDBCConnection.conn(DB_URL, USERNAME, PASSWORD);
+					PreparedStatement prepStat = JDBCConnection.prepStat(conn, QUERY_PIC);
+					prepStat.setString(1, selectID);
+					ResultSet rs = prepStat.executeQuery();
+					while (rs.next()) {
+						content += "ID=" + rs.getString("fileID") + ",";
+						content += "檔名=" + rs.getString("fileName") + ",";
+						content += "檔案內容=" + rs.getString("fileContent") + ",";
+						content += "副檔名=" + rs.getString("fileType");
+						textArea_4.append(content);
+						filename = rs.getString("fileName");
+
+					}
+					;
+
+					String destFileName = String.format("C:\\Java\\%s", filename);
+
+					// 寫入
+					prepStat.setString(1, selectID);
+					rs = prepStat.executeQuery();
+					FileOutputStream fos = new FileOutputStream(destFileName);
+					// 要等到有東西時才儲存
+					while (rs.next()) {
+						Blob b = rs.getBlob("fileContent");
+						byte[] bytes = b.getBytes(1, (int) b.length());
+						fos.write(bytes);
+					}
+					textArea_4.append("儲存成功!");
+
+					fos.close();
+					rs.close();
+					prepStat.close();
+					conn.close();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+
+			}
+		});
+		btnNewButton_9.setBounds(415, 29, 87, 23);
+		panel_4.add(btnNewButton_9);
+
+	}
+
+}

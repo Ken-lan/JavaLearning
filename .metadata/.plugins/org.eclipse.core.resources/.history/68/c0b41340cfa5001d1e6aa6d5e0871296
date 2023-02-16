@@ -1,0 +1,32 @@
+package tw.com.eeit.testjdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class Read {
+
+	public static void main(String[] args) throws Exception {
+
+		Connection conn = DriverManager
+				.getConnection("jdbc:sqlserver://localhost:1433;user=sa;password=1234;trustServerCertificate=true;");
+
+		PreparedStatement preState = conn.prepareStatement("SELECT * FROM [TestCsv].[dbo].[Test]");
+		preState.setString(1, "AAA");
+		ResultSet rs = preState.executeQuery();
+
+		while(rs.next()) {
+			System.out.print(rs.getString("月份")+",");
+			System.out.print(rs.getString("出動車輛數")+",");
+			System.out.print(rs.getString("受傷人數")+",");
+			System.out.print(rs.getString("送醫人數"));
+			System.out.println();
+		}
+		
+		rs.close();
+		preState.close();
+		conn.close();
+	}
+
+}

@@ -1,0 +1,36 @@
+package extend;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+public class TesetProduct {
+
+	public static void main(String[] args) {
+		//final int a;
+		//a = 2;
+		//a = 3;
+		//Product p = new Product("AAA",100);//抽象類別不能用來產生物件
+		//p.calc();
+		
+		Notebook nb = new Notebook("Dell", 30000, 365);
+		System.out.printf("名稱:%s,價錢:%d%n", nb.getName(),nb.getPrice());
+		System.out.println(nb.name);// TestProduct跟Product在同一個package
+		System.out.println(nb.desc());
+		Product item = nb;
+		System.out.println(item.desc());//Product.desc()
+		//item.getWarranty();// compile error
+		//2023.1.7, 日曆 ->Date
+		GregorianCalendar calendar = new GregorianCalendar(2023,1,6);
+		Date expDate = calendar.getTime();// 呼叫getTime()可以取得Date物件
+		Food food = new Food ("肉鬆", 100,null);
+		System.out.println(food.desc());
+		
+		buy(nb);
+		
+	}
+	public static void buy (Notebook nb) {
+		System.out.printf("買入:%s%n",nb.getName());
+	}
+	
+	
+}

@@ -1,0 +1,11 @@
+package Midterm;
+
+public interface Statement {
+
+	public static final String QUERY = "SELECT [dbo].[name], [dbo].price FROM product WHERE id = ?";
+	public static final String QUERY_PIC = "SELECT [name], price FROM product";
+	public static final String UPDATE = "UPDATE prdoduct SET price = ? WHERE id = ?";
+	public static final String INSERT = "INSERT INTO [dbo].[prodct] VALUES(?,?,?,?,?,?,?)";
+	public static final String INSERT_PIC = "INSERT picture VALUES(?,?,?,?)";
+	
+}

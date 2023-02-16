@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="LaunchTerminalSettingsDialog">
+		<item key="terminalLabel" value="SSH Terminal"/>
+		<section name="SettingsPanelControl">
+			<section name="Local Terminal">
+				<item key="encoding" value="UTF-8"/>
+			</section>
+			<section name="SSH Terminal">
+				<item key="lastHost" value="192.168.25.20"/>
+				<list key="hosts">
+					<item value="192.168.25.23|ssh.keep_alive:300:ip.port:8080:ip.host:192.168.25.23:savePassword:false:ssh.user:Student:encoding:null:timeout:0:saveUser:true"/>
+					<item value="192.168.25.20|ssh.keep_alive:300:ip.port:8080:ip.host:192.168.25.20:ssh.user:Student:savePassword:false:encoding:null:timeout:0:saveUser:true"/>
+				</list>
+			</section>
+		</section>
+	</section>
+</section>

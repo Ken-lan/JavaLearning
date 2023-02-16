@@ -1,0 +1,79 @@
+package Midterm;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+
+public class JavaIO extends Url implements Address {
+
+
+	//從網址
+	public BufferedInputStream urlInput(String dburl) throws IOException {
+
+		URL url = new URL(dburl);
+		BufferedInputStream bis = new BufferedInputStream(url.openStream());
+		return bis;
+	}
+
+	public BufferedOutputStream DownloadDestination(String dest) throws FileNotFoundException {
+
+		FileOutputStream fos = new FileOutputStream(dest);
+		BufferedOutputStream bos = new BufferedOutputStream(fos);
+		return bos;
+
+	}
+
+	public void Download(BufferedInputStream bis, BufferedOutputStream bos) throws IOException {
+
+		byte[] buffer = new byte[1024];
+		int length;
+		while ((length = bis.read(buffer)) != -1) {
+
+			bos.write(buffer, 0, length);
+
+		}
+		System.out.println("done,下載完成 ");
+
+	}
+	
+	public BufferedInputStream fileInput(String read) throws FileNotFoundException {
+		
+		FileInputStream fis = new FileInputStream(read);
+		BufferedInputStream bis = new BufferedInputStream(fis);
+		return bis;
+		
+	}
+	
+	
+	
+	public BufferedReader Reader(BufferedInputStream bis) throws UnsupportedEncodingException {
+		
+		InputStreamReader isr = new InputStreamReader(bis,"ms950");
+		BufferedReader br = new BufferedReader(isr);
+		return br;
+		
+	}
+	
+	public String findExtension(File file) {
+		String FileName = file.toString();
+		int index = FileName.lastIndexOf('.');
+		String extension ="";
+	    if(index > 0) {
+		extension = FileName.substring(index + 1);
+	    }
+	    return extension;
+		
+		
+		
+	}
+	
+	
+}

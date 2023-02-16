@@ -1,0 +1,86 @@
+package Midterm;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JPasswordField;
+import java.awt.CardLayout;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JLayeredPane;
+import javax.swing.JSplitPane;
+import java.awt.Canvas;
+import java.awt.Button;
+import java.awt.Panel;
+import java.awt.Label;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Choice;
+import javax.swing.JButton;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import javax.swing.JMenuBar;
+
+public class Window {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JPasswordField passwordField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Window window = new Window();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Window() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 550);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new CardLayout(0, 0));
+		
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, "name_197748648422500");
+		panel.setLayout(null);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setBounds(41, 30, 87, 23);
+		panel.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(41, 71, 87, 23);
+		panel.add(btnNewButton);
+		
+		textField = new JTextField();
+		textField.setBounds(154, 31, 96, 21);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(154, 72, 96, 21);
+		panel.add(passwordField);
+	}
+}

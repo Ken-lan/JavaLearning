@@ -1,0 +1,5 @@
+package Midterm;
+
+public interface DBUrl {
+	public static final String DB_URL ="";
+}

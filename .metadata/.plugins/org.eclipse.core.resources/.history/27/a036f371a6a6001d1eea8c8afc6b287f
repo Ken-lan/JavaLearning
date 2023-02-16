@@ -1,0 +1,79 @@
+package Midterm;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLayeredPane;
+import java.awt.CardLayout;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Window extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Window frame = new Window();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Window() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 551, 320);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(30, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(new CardLayout(0, 0));
+		
+		JButton btnNewButton = new JButton("New button");
+		setBounds(100, 100, 40, 320);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		contentPane.add(btnNewButton, "name_12563004474300");
+		
+		JLayeredPane layeredPane = new JLayeredPane();
+		contentPane.add(layeredPane, "name_12010852412100");
+		layeredPane.setLayout(new CardLayout(0, 0));
+		
+		JPanel panel = new JPanel();
+		layeredPane.add(panel, "name_12528588288400");
+		
+		JPanel panel_1 = new JPanel();
+		layeredPane.add(panel_1, "name_12541574636900");
+		
+		JPanel panel_2 = new JPanel();
+		layeredPane.add(panel_2, "name_12544315899700");
+		
+		JPanel panel_3 = new JPanel();
+		layeredPane.add(panel_3, "name_12547021305300");
+		
+		JPanel panel_4 = new JPanel();
+		layeredPane.add(panel_4, "name_12548956507700");
+		
+		JPanel panel_5 = new JPanel();
+		layeredPane.add(panel_5, "name_12550276303900");
+	}
+
+}

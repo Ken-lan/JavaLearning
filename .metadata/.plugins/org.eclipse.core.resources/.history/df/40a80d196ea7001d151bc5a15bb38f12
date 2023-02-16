@@ -1,0 +1,17 @@
+package Midterm;
+
+public class  Url {
+
+	private String Url;
+
+
+	public String getUrl() {
+		return Url;
+	}
+
+	public void setUrl(String url) {
+		Url = url;
+	}
+
+
+}

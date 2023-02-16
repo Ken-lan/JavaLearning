@@ -1,0 +1,5 @@
+package Midterm;
+
+public interface Query {
+	public static final String QUERY = "";
+}
