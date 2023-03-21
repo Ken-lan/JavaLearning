@@ -1,5 +1,0 @@
-package Midterm;
-
-public interface DBUrl {
-	public static final String DB_URL ="\"Midterm:sqlserver://localhost:1433;databaseName=Midterm;trustServerCertificate=true\"";
-}

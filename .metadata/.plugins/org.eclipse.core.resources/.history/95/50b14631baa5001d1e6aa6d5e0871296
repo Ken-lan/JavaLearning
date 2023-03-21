@@ -1,8 +1,0 @@
-package Midterm;
-
-public interface LoginInformation {
-
-	public static final String username = "";
-	public static final String password = "";
-
-}

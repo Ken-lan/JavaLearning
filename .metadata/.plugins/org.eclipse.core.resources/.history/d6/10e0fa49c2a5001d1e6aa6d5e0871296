@@ -1,8 +1,0 @@
-package Midterm;
-
-public interface Statement {
-
-	public static final String QUERY = "";
-	public static final String UPDATE = "";
-
-}
